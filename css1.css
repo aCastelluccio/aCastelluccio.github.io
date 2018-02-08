@@ -1,0 +1,47 @@
+body {
+  background-color: rgba(0,0,0,0.140);
+}
+
+.container {
+  background-color: rgba(0,0,0,0.140);
+}
+.spacer {
+  padding-top: 1rem;
+}
+
+.hero-text {
+  padding-top: 24p;x
+  padding-bottom: 24px;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.britney-spears-img {
+  border-radius: 50%;
+  width: 100%;
+  border: 7px solid black;
+}
+.hero-line {
+  height: 5px;
+  background-color: gray;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+footer {
+  background-color: rgba(0,0,0,0.888);
+}
+#footer h3{
+  color:white;
+}
+#footer p {
+  color: rgba(255,255,255,0.7);
+}
+.spacer:last-of-type {
+  padding-bottom: 1rem;
+}
+#footer i {
+  color: rgba(255,255,255,0.7);
+  zoom: 250%;
+}
