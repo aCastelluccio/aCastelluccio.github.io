@@ -8,7 +8,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css1.css">
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
   <title>Andrew's portfolio</title>
@@ -19,9 +20,10 @@
 
 
 
+
 <div class="container">
 
-<nav class="navbar sticky-top navbar-toggleable-md navbar-expand-sm navbar-light bg-faded">
+<nav class="navbar sticky-top navbar-toggleable-md navbar-expand-sm navbar-light bg-faded" style="background-color:gray">
 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -35,18 +37,9 @@
     <a class="nav-link" href="#portfolio">Portfolio</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Contact Information</a>
+    <a class="nav-link" href="#copyright-year">Contact Information</a>
   </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown link
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </li>
+
 </ul>
 </div>
 </nav>
@@ -139,9 +132,9 @@
   <div class="col">
     <h3 class="h5">Check me out</h3>
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="https://github.com/aCastelluccio" target="mytarget"><i class="fab fa-github" aria-hidden="true"></i></i></a></li>
-<li class="list-inline-item"><a href="https://www.linkedin.com/in/andrew-castelluccio-6bb193150/" target="mytarget"><i class="fab fa-linkedin-in" aria-hidden="true"></i></i></a></li>
-<li class="list-inline-item"><a href="#" target="mytarget"><i class="fab fa-github" aria-hidden="true"></i></i></a></li>
+      <li class="list-inline-item"><a href="https://github.com/aCastelluccio" target="mytarget"><i class="fa fa-github" aria-hidden="true"></i></i></a></li>
+<li class="list-inline-item"><a href="https://www.linkedin.com/in/andrew-castelluccio-6bb193150/" target="mytarget"><i class="fa fa-linkedin" aria-hidden="true"></i></i></a></li>
+<li class="list-inline-item"><a href="https://www.freecodecamp.org/acastelluccio" target="mytarget"><i class="fa fa-free-code-camp" aria-hidden="true"></i></i></a></li>
     </ul>
   </div>
 </div>
@@ -149,14 +142,16 @@
 <div class="bottom-footer-background" style="background-color: rgba(255,255,255,0.14); padding-top: 24px; padding-bottom: 24px;">
 <div class="container">
   <div class="row">
-     <div class="col" style="color: blue;">
-      All Rights Reserved. &copy; 2018, <span id="copyright-year"></span>
-    </div>
+    <div class="col" style="color: white;">
+        All Rights Reserved. &copy; 2018, <span id="copyright-year"></span>
+      </div>
 
   </div>
 </div>
 </div>
 </footer>
+
+
 
   <script>
   $('#copyright-year').text(new Date().getFullYear());
