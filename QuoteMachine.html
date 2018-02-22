@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="cssForQuotes.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+
+
+<title>Andrew's portfolio</title>
+
+
+</head>
+<body>
+  <div class="container center">
+    <div class="row">
+      <h1 class = "center text-center">QuoteMachine</h1>
+    </div>
+    <div class="row"style="padding:10px">
+    </div>
+    <div class="row">
+
+      <textarea id = "quotes" class = "center text-center" rows="4" cols="50">
+        There will be a random quote here!
+      </textarea>
+    </div>
+    <div class="row">
+      <button id = "btnSubmit" class= "center btn btn-primary">Generate New Quote</button>
+    </div>
+  </div>
+  <script>
+  function getQuote(){
+    var quotes = ["Sounds like its time to get that Enterprise built!",
+    "Time does'nt exist. Clocks exists.",
+    "My mind’s made up, don’t confuse me with facts.",
+    "Talk is cheap. Until you hire a lawyer.",
+    "Take my advice — I'm not using it.",
+    "I got lost in thoughts. It was unfamiliar territory.",
+    "Sure, I'd love to help you out ... now, which way did you come in?",
+    "I would like to slip into something more comfortable - like a coma.",
+    "I started with nothing, and I still have most of it.",
+    "Ever stop to think, and forget to start again?",
+    "There is no dance without the dancers.",
+    "Out of my mind. Back in five minutes.",
+    "The problem with trouble shooting is that trouble shoots back.",
+    "If you are here - who is running hell?",
+    "If nothing was learned, nothing was taught.",
+    "Very funny, Scotty. Now beam down my clothes...",
+    "The dogs bark but the caravan moves on. [Arabic saying]"];
+
+    var random_num = Math.floor(Math.random() * 17);
+    return quotes[random_num];
+  }
+  $("#quotes").text(getQuote());
+  $(document).ready(function() {
+    $("#btnSubmit").click(function(){
+        $("#quotes").text(getQuote());
+    });
+});
+</script>
+</body>
