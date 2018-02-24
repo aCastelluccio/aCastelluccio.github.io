@@ -18,6 +18,8 @@
 
 
 </head>
+
+
 <body>
   <div class="container center">
     <div class="row">
@@ -34,7 +36,15 @@
     <div class="row">
       <button id = "btnSubmit" class= "center btn btn-primary">Generate New Quote</button>
     </div>
+    <div class ="row">
+    <a id = "share" class="btn btn-large btn-secondary center" href="#">
+        <i class="fa fa-twitter" aria-hidden="true"> Share</i>
+  </a>
   </div>
+
+  </div>
+
+
   <script>
   function getQuote(){
     var quotes = ["Sounds like its time to get that Enterprise built!",
@@ -58,11 +68,16 @@
     var random_num = Math.floor(Math.random() * 17);
     return quotes[random_num];
   }
-  $("#quotes").text(getQuote());
+  var temp_quote = getQuote();
+  $("#quotes").text(temp_quote);
   $(document).ready(function() {
     $("#btnSubmit").click(function(){
-        $("#quotes").text(getQuote());
+      temp_quote =  getQuote();
+        $("#quotes").text(temp_quote);
+        $("#share").attr("href", 'https://twitter.com/intent/tweet?text=' + temp_quote);
+
     });
 });
+  $("#share").attr("href", 'https://twitter.com/intent/tweet?text=' + temp_quote);
 </script>
 </body>
