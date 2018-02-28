@@ -1,0 +1,22 @@
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 40px;
+}
+textarea{
+  padding-top: 10px;
+  font-size: 20px;
+  border-width: medium;
+  border-color: gray;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Corben', Georgia, Times, serif;
+    background-color:'transparent';
+}
+p, div, textarea{
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+body {
+    background: url(imgs/tree_bark.png) repeat 0 0;
+}
