@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="cssForWiki.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="cssForWiki.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
 
 
-<title>Andrew's portfolio</title>
+  <title>Andrew's portfolio</title>
 
 
 </head>
@@ -35,17 +35,59 @@
     </div>
     <div class="row" style="padding:5px;">
     </div>
-    <div class="row">
-      <button id = "btnSubmit" class= "center btn btn-primary">Search</button>
-    </div>
+
     <div class="row">
       <button id = "btnSubmit" class= "center btn btn-warning" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random'";>Random Page</button>
     </div>
-
+    <div id = "article"></div>
+    <div id="buffer"class="row"></div>
+    <div class="dropdown">
+      <button class="dropbtn center">Results will appear below</button>
+      <div id="myDropdown" class="dropdown-content center text-center">
+        <a id = "drp_1" href="#"></a>
+        <a id = "drp_2" href="#"></a>
+        <a id = "drp_3" href="#"></a>
+        <a id = "drp_4" href="#"></a>
+        <a id = "drp_5" href="#"></a>
+      </div>
+    </div>
   </div>
 
 
   <script>
+  function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+    $("#quotes").on('keyup', function() {
+setTimeout(function (){
+        var word = $("#quotes").val();
+
+        $.ajax({
+
+        url: "https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrsearch="+word,
+        dataType: "jsonp",
+        success: function(data) {
+          document.getElementById("article").innerHTML = "";
+          //console.log(data.query.pages);
+          var i = 1;
+          if(data.query.pages!=null)
+          for (var prop in data.query.pages) {
+
+            //console.log(data.query.pages[prop]);
+            // $("#article").append(data.query.pages[prop].title);
+            if (i < 6){
+              $("#drp_"+ i).text(data.query.pages[prop].title);
+              $("#drp_"+ i).attr("href","https://en.wikipedia.org/wiki/"+data.query.pages[prop].title);
+              i++;
+            }
+          }
+        }
+        });
+      }, 2000);
+      myFunction();
+      });
+
 
 </script>
 </body>
