@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="cssForWeather.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+
+
+  <title>Andrew's Weather app</title>
+
+
+</head>
+
+
+<body>
+
+<div class="container jumbotron">
+  <div class="row text-center">
+    <div class="col-12">
+    <h1>My Amazing Weather App</h1>
+  </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-12">
+    <button class = "btn btn-primary"id="weather">Click this button to do something amazing</button>
+  </div>
+  </div>
+  <div id="startLat"></div>
+  <div id="startLon"></div>
+</div>
+
+<script>
+var startPos;
+var lat;
+var long;
+ var geoSuccess = function(position) {
+   startPos = position;
+   lat = startPos.coords.latitude;
+   long = startPos.coords.longitude;
+ };
+ navigator.geolocation.getCurrentPosition(geoSuccess);
+
+$("#weather").click(function(){
+  $.get(
+      "https://fcc-weather-api.glitch.me/api/current?lat="+lat+"&lon="+long,
+      function(data) {
+        console.log(data);
+
+      }
+  );
+  $("body").attr("style","background: url(imgs/snow.jpg) repeat 0 0;")
+});
+
+</script>
+
+</body>
