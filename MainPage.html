@@ -46,7 +46,7 @@
             <h3 id = "presAnnounce" class="text-center">Vote for the president of Drew</h2>
             </div>
           </div>
-          <div class="center">
+          <div id="space3" class="center">
           </div>
           <div class="row">
             <div class="col-md-6 text-center">
@@ -56,114 +56,197 @@
                 <button id = "presVote2" class=" btn btn-lg btn-primary text-center">Vote for Joe Biden</h2>
                 </div>
               </div>
+              <div id = "space2" class="center"></div>
               <div class="row">
-                <div class="col-12">
-                  <h3 id = "openVote" class="text-center">Would you like to start the vote?</h2>
+                <div class="col-md-6 text-center">
+                  <button id = "presVote3" class=" btn btn-lg btn-primary text-center">Vote for A Cute Puppy</h2>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <button id = "startVote" class=" btn btn-lg btn-primary text-center">Start the Vote</h2>
+                  <div class="col-md-6 text-center">
+                    <button id = "presVote4" class=" btn btn-lg btn-primary text-center">Vote for Barry Burd</h2>
                     </div>
                   </div>
+                  <div id ="space"class="center"></div>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <button id = "presVote5" class=" btn btn-lg btn-primary text-center">Vote for Corrupt Politician</h2>
+                      </div>
+                    </div>
+                    <div id = "voteP2" class="col-md-6 center text-center">
+                      <h4>Vote For Senators (Choose as many as you want)</h4>
 
-            </div>
-          </div>
+                      <div class="funkyradio">
+                        <div class="funkyradio-success">
+                          <input type="checkbox" name="checkbox" id="checkbox1" />
+                          <label for="checkbox1">Tarzan</label>
+                        </div>
+                        <div class="funkyradio-primary">
+                          <input type="checkbox" name="checkbox" id="checkbox2" />
+                          <label for="checkbox2">A Cute Kitten</label>
+                        </div>
+                        <div class="funkyradio-success">
+                          <input type="checkbox" name="checkbox" id="checkbox3" />
+                          <label for="checkbox3">The Queen of England</label>
+                        </div>
+                        <div class="funkyradio-danger">
+                          <input type="checkbox" name="checkbox" id="checkbox4" />
+                          <label for="checkbox4">King Kong</label>
+                        </div>
+                        <div class="funkyradio-warning">
+                          <input type="checkbox" name="checkbox" id="checkbox5" />
+                          <label for="checkbox5">Will Smith</label>
+                        </div>
+                        <div class="funkyradio-info">
+                          <input type="checkbox" name="checkbox" id="checkbox6" />
+                          <label for="checkbox6">Oprah</label>
+                        </div>
+                      </div>
+                      <div class="row" style ="padding:20px"  >
+                        <div class="col-md-12 text-center">
+                          <button id = "endSenate" class=" btn btn-lg btn-primary text-center">Submit Votes</h2>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <h3 id = "openVote" class="text-center">Would you like to start the vote?</h2>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button id = "startVote" class=" btn btn-lg btn-primary text-center">Start the Vote</h2>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
 
 
-          <script>
+                    <script>
 
-          var listOfVoter = [61636,61637];
-          var listOfAdmin = [12345];
-          var step = 0;
-          var votesForA = 0;
-          var votesForJ = 0;
+                    var listOfVoter = [61636,61637];
+                    var listOfAdmin = [12345];
+                    var step = 0;
+                    var votesForA = 0;
+                    var votesForJ = 0;
+                    var votesForP = 0;
+                    var votesForB = 0;
+                    var votesForC = 0;
+                    $("#presVote1").hide();
+                    $("#presVote2").hide();
+                    $("#presVote3").hide();
+                    $("#presVote4").hide();
+                    $("#presVote5").hide();
+                    $("#voteP2").hide();
 
-          $("#presVote1").hide();
-          $("#presVote2").hide();
-          $("#presAnnounce").hide();
-          $("#startVote").hide();
-          $("#openVote").hide();
-
-
-          $("#presVote1").click(function(){
-            votesForA ++;
-            voterAfterPres();
-          });
-
-          $("#presVote2").click(function(){
-            votesForJ ++;
-            voterAfterPres();
-          });
-
-          function voter(){
-            $("#presVote1").show();
-            $("#presVote2").show();
-            $("#presAnnounce").show();
-          }
-
-          function voterAfterPres(){
-            // Do something
-            $("#presVote1").hide();
-            $("#presVote2").hide();
-            $("#presAnnounce").hide();
-          }
+                    $("#presAnnounce").hide();
+                    $("#startVote").hide();
+                    $("#openVote").hide();
 
 
-          function admin(){
-            $("#startVote").show();
-            $("#openVote").show();
+                    $("#presVote1").click(function(){
+                      votesForA ++;
+                      voterAfterPres();
+                    });
 
-          }
+                    $("#presVote2").click(function(){
+                      votesForJ ++;
+                      voterAfterPres();
+                    });
+                    $("#presVote3").click(function(){
+                      votesForP ++;
+                      voterAfterPres();
+                    });
+                    $("#presVote4").click(function(){
+                      votesForB ++;
+                      voterAfterPres();
+                    });
+                    $("#presVote5").click(function(){
+                      votesForC ++;
+                      voterAfterPres();
+                    });
 
-          $("#startVote").click(function(){
-            $("#submit").show();
-            $("#input").show();
-            $("#enterId").show();
-            $("#startVote").hide();
-            $("#openVote").hide();
-            $("#input").val("");
-            step = 1;
-          });
+                    function voter(){
+                      $("#presVote1").show();
+                      $("#presVote2").show();
+                      $("#presVote3").show();
+                      $("#presVote4").show();
+                      $("#presVote5").show();
+                      $("#space2").show();
+                      $("#presAnnounce").show();
+                    }
 
-          $("#submit").click(function(){
+                    function voterAfterPres(){
+                      // Do something
+                      $("#presVote1").hide();
+                      $("#presVote2").hide();
+                      $("#presVote3").hide();
+                      $("#presVote4").hide();
+                      $("#presVote5").hide();
+                      $("#presAnnounce").hide();
+                      $("#space").hide();
+                      $("#voteP2").show();
+                      $("#space3").hide();
+                      $("#space2").hide();
 
-            $("#submit").hide();
-            $("#input").hide();
-            $("#enterId").hide();
+                    }
 
-            var idToCheck = $("#input").val();
-            var v = false;
-            var a = false;
-            for (var i = 0; i < listOfVoter.length; i++){
-              if (idToCheck == listOfVoter[i])
-                v = true;
-              else if (idToCheck == listOfAdmin[i])
-                a = true;
-            }
-            if (step == 0 && a ){
-              admin();
-            }
-            else if (step == 0){
-              alert("Please enter an admin ID to start the process")
-              $("#submit").show();
-              $("#input").show();
-              $("#enterId").show();
-              $("#input").val("");
 
-            }
-            else if (step == 1 && v)
-              voter();
-            else{
-              alert("Please enter a valid ID");
-              $("#submit").show();
-              $("#input").show();
-              $("#enterId").show();
-              $("#input").val("");
+                    function admin(){
+                      $("#startVote").show();
+                      $("#openVote").show();
 
-            }
+                    }
 
-          });
+                    $("#startVote").click(function(){
+                      $("#submit").show();
+                      $("#input").show();
+                      $("#enterId").show();
+                      $("#startVote").hide();
+                      $("#openVote").hide();
+                      $("#input").val("");
+                      step = 1;
+                    });
 
-          </script>
-        </body>
+                    $("#submit").click(function(){
+
+                      $("#submit").hide();
+                      $("#input").hide();
+                      $("#enterId").hide();
+                      $("#space2").hide();
+                      var idToCheck = $("#input").val();
+                      var v = false;
+                      var a = false;
+                      for (var i = 0; i < listOfVoter.length; i++){
+                        if (idToCheck == listOfVoter[i])
+                        v = true;
+                        else if (idToCheck == listOfAdmin[i])
+                        a = true;
+                      }
+                      if (step == 0 && a ){
+                        admin();
+                      }
+                      else if (step == 0){
+                        alert("Please enter an admin ID to start the process")
+                        $("#submit").show();
+                        $("#input").show();
+                        $("#enterId").show();
+                        $("#input").val("");
+                        $("#space2").show();
+
+                      }
+                      else if (step == 1 && v)
+                      voter();
+                      else{
+                        alert("Please enter a valid ID");
+                        $("#submit").show();
+                        $("#input").show();
+                        $("#enterId").show();
+                        $("#input").val("");
+                        $("#space2").show();
+
+                      }
+
+                    });
+
+                    </script>
+                  </body>

@@ -56,7 +56,14 @@
                 <button id = "presVote2" class=" btn btn-lg btn-primary text-center">Vote for Joe Biden</h2>
                 </div>
               </div>
-            
+              <div class="row">
+                <div class="col-md-6 text-center">
+                  <button id = "presVote3" class=" btn btn-lg btn-primary text-center">Vote for A Cute Puppy</h2>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <button id = "presVote4" class=" btn btn-lg btn-primary text-center">Vote for Barry Burd</h2>
+                    </div>
+                  </div>
               <div class="row">
                 <div class="col-12">
                   <h3 id = "openVote" class="text-center">Would you like to start the vote?</h2>
@@ -79,9 +86,13 @@
           var step = 0;
           var votesForA = 0;
           var votesForJ = 0;
-
+          var votesForP = 0;
+          var votesForB = 0;
           $("#presVote1").hide();
           $("#presVote2").hide();
+          $("#presVote3").hide();
+          $("#presVote4").hide();
+
           $("#presAnnounce").hide();
           $("#startVote").hide();
           $("#openVote").hide();
@@ -96,10 +107,20 @@
             votesForJ ++;
             voterAfterPres();
           });
+          $("#presVote3").click(function(){
+            votesForP ++;
+            voterAfterPres();
+          });
+          $("#presVote4").click(function(){
+            votesForB ++;
+            voterAfterPres();
+          });
 
           function voter(){
             $("#presVote1").show();
             $("#presVote2").show();
+            $("#presVote3").show();
+            $("#presVote4").show();
             $("#presAnnounce").show();
           }
 
@@ -107,6 +128,9 @@
             // Do something
             $("#presVote1").hide();
             $("#presVote2").hide();
+            $("#presVote4").hide();
+            $("#presVote4").hide();
+
             $("#presAnnounce").hide();
           }
 
