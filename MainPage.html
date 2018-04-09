@@ -145,6 +145,40 @@
             <button id = "dontEnd" class=" btn btn-lg btn-primary text-center">No</button>
           </div>
         </div>
+        <div id = "results">
+          <div class  = "text-center row">
+            <div class = col-lg-12>
+              <h2>The results are in!</h2>
+              </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "aVote"></h3>
+              </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "jVote"></h3>
+              </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "pVote"></h3>
+              </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "bVote"></h3>
+              </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "cVote"></h3>
+              </div>
+          </div>
+
+
+        </div>
       </div>
     </div>
 
@@ -180,7 +214,7 @@
     $("#endVote").hide();
     $("#end").hide();
     $("#dontEnd").hide();
-
+    $("#results").hide();
 
 
     $("#presVote1").click(function(){
@@ -217,7 +251,6 @@
       var numChecked = 0;
       if($("#checkbox1").is(':checked')){
         numChecked ++;
-
       }
       if($("#checkbox2").is(':checked')){
 
@@ -323,6 +356,16 @@
       $("#openVote").show();
 
     }
+    function adminCountVote(){
+      $("#results").show();
+
+      $("#aVote").text("Andrew Castelluccio recieved: " + votesForA + " votes");
+      $("#jVote").text("Joe Biden recieved: " + votesForJ + " votes");
+      $("#pVote").text("A Cute Puppy recieved: " + votesForP + " votes");
+      $("#bVote").text("Barry Burd recieved: " + votesForB + " votes");
+      $("#cVote").text("A Corrupt Politician recieved: " + votesForC + " votes");
+
+    }
 
     $("#startVote").click(function(){
       $("#submit").show();
@@ -344,14 +387,21 @@
       var idToCheck = $("#input").val();
       var v = false;
       var a = false;
+
       for (var i = 0; i < listOfVoter.length; i++){
         if (idToCheck == listOfVoter[i])
         v = true;
-        else if (idToCheck == listOfAdmin[i])
-        a = true;
       }
+      for (var i = 0; i < listOfAdmin.length; i++){
+        if (idToCheck == listOfAdmin[i])
+          a = true;
+      }
+
       if (step == 0 && a ){
         admin();
+      }
+      else if (step == 1 && a ){
+        adminCountVote();
       }
       else if (step == 0){
         alert("Please enter an admin ID to start the process")
