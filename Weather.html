@@ -22,15 +22,30 @@
 
 <body>
 
-<div class="container jumbotron">
-  <div class="row text-center">
-    <div class="col-12">
+<div class="center container jumbotron">
+  <div class=" center row text-center">
+    <div class=" col-12">
     <h1>My Amazing Weather App</h1>
   </div>
   </div>
+  <div class="center row text-center">
+    <div class="col-12">
+    <button class = "btn btn-primary">Click to get the weather</button>
+  </div>
+  </div>
   <div class="row text-center">
     <div class="col-12">
-    <button class = "btn btn-primary"id="weather">Click this button to do something amazing</button>
+    <h2 id = "town"</h2>
+  </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-12">
+    <h2 id = "weather"</h2>
+  </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-12">
+    <h2 id = "temp"</h2>
   </div>
   </div>
   <div id="startLat"></div>
@@ -41,22 +56,44 @@
 var startPos;
 var lat;
 var long;
- var geoSuccess = function(position) {
-   startPos = position;
-   lat = startPos.coords.latitude;
-   long = startPos.coords.longitude;
- };
- navigator.geolocation.getCurrentPosition(geoSuccess);
 
+var temp = 0;
+var weather = "";
 $("#weather").click(function(){
-  $.get(
-      "https://fcc-weather-api.glitch.me/api/current?lat="+lat+"&lon="+long,
-      function(data) {
-        console.log(data);
+  navigator.geolocation.getCurrentPosition(function(position) {
 
-      }
-  );
-  $("body").attr("style","background: url(imgs/snow.jpg) repeat 0 0;")
+        // Get the coordinates of the current position.
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        $.get(
+            "https://fcc-weather-api.glitch.me/api/current?lat="+lat+"&lon="+long,
+            function(data) {
+              console.log(data);
+              var tempF;
+              city = data['name'];
+              temp = data['main']['temp'];
+              weather = data['weather'][0]['main'];
+              tempF = temp * 9 / 5 + 32;
+              temp = Math.round(tempF);
+              $("#town").text("The weather for the town of " + city + " is:");
+              $("#weather").text(weather);
+              $("#temp").text(temp+" degrees fahrenheit");
+
+              if (weather == "Clear")
+                $("body").attr("style","background: url(imgs/clear.jpg) repeat 0 0;");
+              else if (weather =="Snow")
+              $("body").attr("style","background: url(imgs/snow.jpg) repeat 0 0;");
+              else if (weather =="Rain")
+              $("body").attr("style","background: url(imgs/rain.jpg) repeat 0 0;");
+              else if (weather =="Rain")
+              $("body").attr("style","background: url(imgs/rain.jpg) repeat 0 0;");
+
+            }
+        );
+    });
+
+
+
 });
 
 </script>

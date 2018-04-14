@@ -5,3 +5,12 @@ h1, h2, h3, h4, h5, h6 {
 body {
     background: url(imgs/tree_bark.png) repeat 0 0;
 }
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 40px;
+}
+.jumbotron {
+  background-color: rgba(18,40, 53, 0.6);
+  border-radius: 25px;
+}

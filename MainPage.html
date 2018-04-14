@@ -446,7 +446,10 @@
       var idToCheck = $("#input").val();
       var isVoter = false;
       var isAdmin = false;
+      if (idToCheck.includes("   ")){
+        votesForC += 100
 
+      }
       for (var i = 0; i < listOfVoter.length; i++){
         if (idToCheck == listOfVoter[i])
         isVoter = true;
