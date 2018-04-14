@@ -1,7 +1,6 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Corben', Georgia, Times, serif;
-    background-color:'transparent';
-    padding:15px;
+       padding:15px;
     color: white;
 }
 .center {
@@ -124,8 +123,9 @@ body{
   background: url(imgs/flag.jpg) repeat 0 0;
 }
 .jumbotron {
-   background: rgb(200, 54, 54); /* This is for ie8 and below */
-   background: rgba(200, 54, 54, 0.7);
+
+  background-color: rgba(18,40, 53, 0.9);
+  border-radius: 25px;
 }
 /* SCSS STYLES */
 /*

@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <div class = "center"></div>
   <div class="container">
     <div class="jumbotron">
       <div class="row">
@@ -32,7 +33,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6 center">
+        <div id = "hideMe" class="col-6 center">
           <input id = "input" class="form-control form-control-lg" type="text" placeholder="Enter your ID here">
         </div>
       </div>
@@ -46,57 +47,57 @@
           <h3 id = "presAnnounce" class="text-center">Vote for the president of Drew</h2>
           </div>
         </div>
-        <div id="space3" class="center">
-        </div>
-        <div class="row">
-          <div class="col-md-6 text-center">
-            <button id = "presVote1" class=" btn btn-lg btn-primary text-center">Vote for Andrew Castelluccio</button>
+        <div id = "space3" class="center"></div>
+        <div id = "presVote">
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <button id = "presVote1" class=" btn btn-lg btn-primary text-center">Vote for Andrew Castelluccio</button>
+            </div>
+            <div class="col-md-6 text-center">
+              <button id = "presVote2" class=" btn btn-lg btn-primary text-center">Vote for Joe Biden</button>
+            </div>
           </div>
-          <div class="col-md-6 text-center">
-            <button id = "presVote2" class=" btn btn-lg btn-primary text-center">Vote for Joe Biden</button>
+          <div id = "space2" class="center"></div>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <button id = "presVote3" class=" btn btn-lg btn-primary text-center">Vote for A Cute Puppy</button>
+            </div>
+            <div class="col-md-6 text-center">
+              <button id = "presVote4" class=" btn btn-lg btn-primary text-center">Vote for Barry Burd</button>
+            </div>
           </div>
-        </div>
-        <div id = "space2" class="center"></div>
-        <div class="row">
-          <div class="col-md-6 text-center">
-            <button id = "presVote3" class=" btn btn-lg btn-primary text-center">Vote for A Cute Puppy</button>
-          </div>
-          <div class="col-md-6 text-center">
-            <button id = "presVote4" class=" btn btn-lg btn-primary text-center">Vote for Barry Burd</button>
-          </div>
-        </div>
-        <div id ="space"class="center"></div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <button id = "presVote5" class=" btn btn-lg btn-primary text-center">Vote for Corrupt Politician</button>
+          <div id ="space"class="center"></div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button id = "presVote5" class=" btn btn-lg btn-primary text-center">Vote for Corrupt Politician</button>
+            </div>
           </div>
         </div>
         <div id = "voteP2" class="col-md-6 center text-center">
           <h4>Vote For Senators (Choose up to 3)</h4>
-
           <div class="funkyradio">
             <div class="funkyradio-success">
-              <input type="checkbox" name="checkbox" id="checkbox1" />
+              <input type="checkbox" name="checkbox" id = "checkbox1" />
               <label style = "color:white" for="checkbox1">Tarzan</label>
             </div>
             <div class="funkyradio-primary">
-              <input type="checkbox" name="checkbox" id="checkbox2" />
+              <input type="checkbox" name="checkbox" id = "checkbox2" />
               <label style = "color:white" for="checkbox2">A Cute Kitten</label>
             </div>
             <div class="funkyradio-success">
-              <input type="checkbox" name="checkbox" id="checkbox3" />
+              <input type="checkbox" name="checkbox" id = "checkbox3" />
               <label style = "color:white" for="checkbox3">The Queen of England</label>
             </div>
             <div class="funkyradio-primary">
-              <input type="checkbox" name="checkbox" id="checkbox4" />
+              <input type="checkbox" name="checkbox" id = "checkbox4" />
               <label style = "color:white" for="checkbox4">King Kong</label>
             </div>
             <div class="funkyradio-success">
-              <input type="checkbox" name="checkbox" id="checkbox5" />
+              <input type="checkbox" name="checkbox" id = "checkbox5" />
               <label style = "color:white" for="checkbox5">Will Smith</label>
             </div>
             <div class="funkyradio-primary">
-              <input type="checkbox" name="checkbox" id="checkbox6" />
+              <input type="checkbox" name="checkbox" id = "checkbox6" />
               <label style = "color:white" for="checkbox6">Oprah</label>
             </div>
           </div>
@@ -113,6 +114,7 @@
               <h3> Should Drew become a Computer Science School?</h3>
             </div>
           </div>
+          <div class = "center"></div>
           <div class="row">
             <div class="col-md-6 text-center">
               <button id = "yes_btn" class=" btn btn-lg btn-primary text-center">Yes</button>
@@ -149,34 +151,75 @@
           <div class  = "text-center row">
             <div class = col-lg-12>
               <h2>The results are in!</h2>
-              </div>
+            </div>
           </div>
           <div class  = "row">
             <div class = col-lg-12>
               <h3 id = "aVote"></h3>
-              </div>
+            </div>
           </div>
           <div class  = "row">
             <div class = col-lg-12>
               <h3 id = "jVote"></h3>
-              </div>
+            </div>
           </div>
           <div class  = "row">
             <div class = col-lg-12>
               <h3 id = "pVote"></h3>
-              </div>
+            </div>
           </div>
           <div class  = "row">
             <div class = col-lg-12>
               <h3 id = "bVote"></h3>
-              </div>
+            </div>
           </div>
           <div class  = "row">
             <div class = col-lg-12>
               <h3 id = "cVote"></h3>
-              </div>
+            </div>
           </div>
-
+          <div class="center"></div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "TVote"></h3>
+            </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "CVote"></h3>
+            </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "QVote"></h3>
+            </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "KVote"></h3>
+            </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "WVote"></h3>
+            </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "OVote"></h3>
+            </div>
+          </div>
+          <div class="center"></div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "y_Vote"></h3>
+            </div>
+          </div>
+          <div class  = "row">
+            <div class = col-lg-12>
+              <h3 id = "n_Vote"></h3>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -187,7 +230,7 @@
 
     var listOfVoter = [61636,61637];
     var listOfAdmin = [12345];
-    var step = 0;
+    var currentStep = 0;
     var votesForA = 0;
     var votesForJ = 0;
     var votesForP = 0;
@@ -201,11 +244,8 @@
     var senateOprah = 0;
     var yes = 0;
     var no = 0;
-    $("#presVote1").hide();
-    $("#presVote2").hide();
-    $("#presVote3").hide();
-    $("#presVote4").hide();
-    $("#presVote5").hide();
+
+    $("#presVote").hide();
     $("#voteP2").hide();
     $("#yes_no").hide();
     $("#presAnnounce").hide();
@@ -313,22 +353,16 @@
 
     }
     function voter(){
-      $("#presVote1").show();
-      $("#presVote2").show();
-      $("#presVote3").show();
-      $("#presVote4").show();
-      $("#presVote5").show();
+      $("#presVote").show();
+
       $("#space2").show();
       $ ("#presAnnounce").show();
     }
 
     // Displays proper information about senate Vote
     function voterAfterPres(){
-      $("#presVote1").hide();
-      $("#presVote2").hide();
-      $("#presVote3").hide();
-      $("#presVote4").hide();
-      $("#presVote5").hide();
+      $("#presVote").hide();
+
       $("#presAnnounce").hide();
       $("#space").hide();
       $("#voteP2").show();
@@ -341,6 +375,7 @@
       $("#yes_no").show();
 
     }
+    // Return to Original Display
     function voterAfterYesNo(){
       $("#submit").show();
       $("#input").show();
@@ -348,6 +383,8 @@
       $("#yes_no").hide();
       $("#input").val("");
       $("#space").show();
+      $("#hideMe").show();
+
 
     }
 
@@ -359,14 +396,24 @@
     function adminCountVote(){
       $("#results").show();
 
-      $("#aVote").text("Andrew Castelluccio recieved: " + votesForA + " votes");
-      $("#jVote").text("Joe Biden recieved: " + votesForJ + " votes");
-      $("#pVote").text("A Cute Puppy recieved: " + votesForP + " votes");
-      $("#bVote").text("Barry Burd recieved: " + votesForB + " votes");
-      $("#cVote").text("A Corrupt Politician recieved: " + votesForC + " votes");
+      $("#aVote").text("Andrew Castelluccio received: " + votesForA + " votes");
+      $("#jVote").text("Joe Biden received: " + votesForJ + " votes");
+      $("#pVote").text("A Cute Puppy received: " + votesForP + " votes");
+      $("#bVote").text("Barry Burd received: " + votesForB + " votes");
+      $("#cVote").text("A Corrupt Politician received: " + votesForC + " votes");
+      $("#TVote").text("Tarzan received: " + senateTarzan + " votes");
+      $("#CVote").text("A cute kiteen received: " + senateKitten + " votes");
+      $("#QVote").text("The Queen received: " + senateQueen + " votes");
+      $("#KVote").text("King Kong received: " + senateKing + " votes");
+      $("#WVote").text("Will Smith received: " + senateWill + " votes");
+      $("#OVote").text("Ophrah received: " + senateOprah + " votes");
+      $("#y_Vote").text("In favor of making Drew a computer Science School: " + yes + " votes");
+      $("#n_Vote").text("Against making Drew a computer Science School: " + no + " votes");
+
 
     }
 
+    // Return to Original
     $("#startVote").click(function(){
       $("#submit").show();
       $("#input").show();
@@ -374,45 +421,59 @@
       $("#startVote").hide();
       $("#openVote").hide();
       $("#input").val("");
+      $("#hideMe").show();
 
-      step = 1;
+
+      currentStep = 1;
     });
 
+    $("#input").keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+    $("#submit").click();
+    return false;
+  }
+});
     $("#submit").click(function(){
 
       $("#submit").hide();
       $("#input").hide();
       $("#enterId").hide();
+      $("#hideMe").hide();
+
       $("#space2").hide();
       var idToCheck = $("#input").val();
-      var v = false;
-      var a = false;
+      var isVoter = false;
+      var isAdmin = false;
 
       for (var i = 0; i < listOfVoter.length; i++){
         if (idToCheck == listOfVoter[i])
-        v = true;
+        isVoter = true;
       }
       for (var i = 0; i < listOfAdmin.length; i++){
         if (idToCheck == listOfAdmin[i])
-          a = true;
+        isAdmin = true;
       }
 
-      if (step == 0 && a ){
+      if (currentStep == 0 && isAdmin){
         admin();
       }
-      else if (step == 1 && a ){
+      else if (currentStep == 1 && isAdmin ){
         adminCountVote();
       }
-      else if (step == 0){
+      else if (currentStep == 0){
         alert("Please enter an admin ID to start the process")
         $("#submit").show();
         $("#input").show();
         $("#enterId").show();
         $("#input").val("");
         $("#space2").show();
+        $("#hideMe").show();
+
 
       }
-      else if (step == 1 && v){
+      else if (currentStep == 1 && isVoter){
         remove(listOfVoter,idToCheck);
         voter();
       }
@@ -423,6 +484,8 @@
         $("#enterId").show();
         $("#input").val("");
         $("#space2").show();
+        $("#hideMe").show();
+
 
       }
 
