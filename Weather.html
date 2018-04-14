@@ -12,6 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
 
   <title>Andrew's Weather app</title>
@@ -30,7 +31,7 @@
   </div>
   <div class="center row text-center">
     <div class="col-12">
-    <button class = "btn btn-primary">Click to get the weather</button>
+    <button id="btn" class = "btn btn-primary">Click to get the weather</button>
   </div>
   </div>
   <div class="row text-center">
@@ -59,7 +60,7 @@ var long;
 
 var temp = 0;
 var weather = "";
-$("#weather").click(function(){
+$("#btn").click(function(){
   navigator.geolocation.getCurrentPosition(function(position) {
 
         // Get the coordinates of the current position.
@@ -77,7 +78,7 @@ $("#weather").click(function(){
               temp = Math.round(tempF);
               $("#town").text("The weather for the town of " + city + " is:");
               $("#weather").text(weather);
-              $("#temp").text(temp+" degrees fahrenheit");
+              $("#temp").text(temp+" degrees Fahrenheit");
 
               if (weather == "Clear")
                 $("body").attr("style","background: url(imgs/clear.jpg) repeat 0 0;");
@@ -90,7 +91,8 @@ $("#weather").click(function(){
 
             }
         );
-    });
+    },function (e) {
+    }, {maximumAge:60000, timeout:5000, enableHighAccuracy:true});
 
 
 
