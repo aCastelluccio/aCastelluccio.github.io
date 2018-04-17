@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="cssForTwitch.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+
+
+  <title>Andrew's Twitch App</title>
+
+
+</head>
+
+
+<body>
+  <div class="container">
+    <div style = "padding:50px"></div>
+    <div class="row">
+      <div class = "col-md-12">
+      <h1 class = "text-center">Twitch Stream Checker</h1>
+      </div>
+    </div>
+    <div class="list-group">
+  <a id = "free" href="https://www.twitch.tv/freecodecamp" class="list-group-item">FreeCodeCamp</a>
+  <a id = "lirik" href="https://www.twitch.tv/lirik" class="list-group-item">Lirik</a>
+  <a id = "cohh" href="https://www.twitch.tv/cohhcarnage" class="list-group-item">Cohhcarnage</a>
+</div>
+
+  </div>
+
+
+  <script>
+$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/cohhcarnage?callback=?' , function(data) {
+  console.log(data);
+  if(data['stream']==null)
+    $("#cohh").text("CohhCarnage - Offline");
+  else{
+    $("#cohh").text("CohhCarnage - Online - Playing: " + data['stream']['game']+ " with " + data['stream']['viewers'] + " viewers");
+  }
+});
+$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/freecodecamp?callback=?' , function(data) {
+  console.log(data);
+  if(data['stream']==null)
+    $("#free").text("FreeCodeCamp - Offline");
+    else{
+      $("#free").text("FreeCodeCamp - Online - Playing: " + data['stream']['game']+ " with " + data['stream']['viewers'] + " viewers");
+    }
+});
+$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/lirik?callback=?' , function(data) {
+  console.log(data);
+  if(data['stream']==null)
+    $("#lirik").text("Lirik - Offline");
+  else{
+    $("#lirik").text("Lirik - Online - Playing: " + data['stream']['game']+ " with " + data['stream']['viewers'] + " viewers");
+  }
+});
+
+
+
+</script>
+</body>
