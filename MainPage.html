@@ -228,9 +228,11 @@
 
     <script>
 
-    var listOfVoter = [61636,61637];
-    var listOfAdmin = [12345];
+    var listOfVoter = [61636,61637,61638,61639,61640,61641,61642,61643,61644,61645,61646,61647,61648,61649,61650,61651,61652,61653,61654,61655,61656,61657,61658,61659,61660];
+    var listOfAdmin = [12345,54321];
+
     var currentStep = 0;
+
     var votesForA = 0;
     var votesForJ = 0;
     var votesForP = 0;
@@ -308,7 +310,7 @@
       if($("#checkbox6").is(':checked')){
         numChecked ++;
       }
-      if(numChecked <= 3){
+      if(numChecked <= 3 && numChecked > 0){
         if($("#checkbox1").is(':checked')){
           senateTarzan ++;
         }
