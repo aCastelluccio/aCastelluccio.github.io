@@ -228,11 +228,13 @@
 
     <script>
 
+    // Arrays of IDs
     var listOfVoter = [61636,61637,61638,61639,61640,61641,61642,61643,61644,61645,61646,61647,61648,61649,61650,61651,61652,61653,61654,61655,61656,61657,61658,61659,61660];
     var listOfAdmin = [12345,54321];
 
     var currentStep = 0;
 
+    // Counts for different votes
     var votesForA = 0;
     var votesForJ = 0;
     var votesForP = 0;
@@ -258,7 +260,7 @@
     $("#dontEnd").hide();
     $("#results").hide();
 
-
+    // Functions for vote 1
     $("#presVote1").click(function(){
       votesForA ++;
       voterAfterPres();
@@ -395,6 +397,8 @@
       $("#openVote").show();
 
     }
+    // Functions displaying votes
+
     function adminCountVote(){
       $("#results").show();
 
@@ -430,13 +434,14 @@
     });
 
     $("#input").keypress(function (e) {
- var key = e.which;
- if(key == 13)  // the enter key code
-  {
-    $("#submit").click();
-    return false;
-  }
-});
+      var key = e.which;
+      if(key == 13)  // the enter key code
+      {
+        $("#submit").click();
+        return false;
+      }
+    });
+    // Checker for entered ID
     $("#submit").click(function(){
 
       $("#submit").hide();
