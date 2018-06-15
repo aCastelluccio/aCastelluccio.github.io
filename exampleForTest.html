@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+  <title>Testing</title>
+
+</head>
+
+
+<body>
+  <div class="container jumbotron text-center">
+    <h1 id = 'title' name = 'title'>Type A Number</h1>
+    <input id = 'input' name = 'input'></input>
+    <button id = 'button' name = 'button'>submit</button>
+    <h1 id = 'text' name = 'text'></h1>
+
+
+    <script>
+
+    $(document).ready(function() {
+      $("#button").click(function(){
+        var text = $("#input").val();
+
+        if (isNaN(text)){
+          var text = $("#text").text("Failure");
+        }
+        else {
+          var text = $("#text").text("Success");
+        }
+      });
+    });
+  </script>
+</div>
+</body>
