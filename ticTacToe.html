@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="cssForTic.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+</head>
+
+<body>
+  <div class = "container jumbotron">
+    <div class = "row">
+      <div class = "col-12">
+        <h1 class="text-center">Would you like to play a game?</h1>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-6">
+        <button id = "btnYes" class = "btn btn-primary">Yes</button>
+      </div>
+      <div class = "col-6">
+        <button class = "btn btn-danger">No</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class = "con2 container jumbotron">
+    <div class = "row">
+      <div class = "col-12">
+        <h1 class="text-center">Play Against Player or AI</h1>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col-6">
+        <button id = "btnPlayer" class = "btn btn-primary">Player</button>
+      </div>
+      <div class = "col-6">
+        <button id = "btnAi" class = "btn btn-danger">AI</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id = "shake" class="table center game">
+    <div class="row">
+      <div class = "col-12">
+        <button id = "btnMusic" class="btn btn-success musicBtn text-center">Music : Paused</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "col-12">
+        <h2 id = "h2Turn" class="text-center">It is X's move</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn00">-</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn01">-</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn02">-</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn10">-</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn11">-</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn12">-</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn20">-</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn21">-</button>
+        </div>
+      </div>
+
+      <div class="col-sm-4 tic-box">
+        <div class="topLeft">
+          <button id = "btn22">-</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+  var bigArray = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
+  var audio = new Audio('https://www.bensound.com/bensound-music/bensound-epic.mp3');
+
+  var turn = 0;
+  var ai = false;
+  $(".game").hide();
+  $(".con2").hide();
+  $("#btnMusic").click(function() {
+  if($("#btnMusic").text()=="Music : Paused"){
+    audio.play();
+    $("#btnMusic").text("Music : Playing")
+    $("#btnMusic").css('border-color', 'green');
+  }
+  else{
+    audio.pause();
+    $("#btnMusic").text("Music : Paused")
+    $("#btnMusic").css('border-color', 'red');
+
+  }
+  });
+
+  $("#btnYes").click(function() {
+   $(".container").hide();
+   $(".con2").show();
+
+  });
+
+  $("#btnYes").click(function() {
+   $(".container").hide();
+   $(".con2").show();
+
+  });
+
+  $("#btnPlayer").click(function() {
+   $(".con2").hide();
+   $(".game").show();
+  });
+
+  $("#btnAi").click(function() {
+   $(".con2").hide();
+   $(".game").show();
+    ai = true;
+  });
+
+  function clear(){
+    turn = 0;
+    $("#h2Turn").text("It is X's move");
+    bigArray = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
+    for (var i = 0; i < 3; i ++){
+      for (var j = 0; j < 3; j++){
+        $("#btn" + i + j).text("-");
+        $("#btn" + i + j).css({ 'color': "#333" });
+        $("#btn" + i + j).css({ 'background-color': "white" });
+
+      }
+    }
+  }
+
+  function aiTurn(){
+    turn += 1;
+    var x = 1;
+    var y = 1;
+    var backup = 0;
+    while (bigArray[x][y] != "-" && backup < 1000){
+      x = Math.floor((Math.random() * 3));
+      y = Math.floor((Math.random() * 3));
+      backup += 1;
+  }
+    bigArray[x][y] = "O";
+    $("#btn" + x + y).text("O");
+    $("#h2Turn").text("It is X's move");
+  }
+
+  function userAction(btn,num1,num2){
+    if (turn % 2 == 0){
+      $("#h2Turn").text("It is O's move");
+    }
+    else{
+       $("#h2Turn").text("It is X's move");
+    }
+    if ($(btn).text() == "-" && turn % 2 == 0){
+      turn += 1;
+      $(btn).text("X");
+      $(btn).css({ 'color': "green" });
+      bigArray[num1][num2] = "X";
+      if (ai && !checkForWin() && !checkForTie()){
+        aiTurn();
+      }
+    }
+    else if ($(btn).text() == "-"){
+      turn += 1;
+      $(btn).text("O");
+      $(btn).css({ 'color': "red" });
+
+      bigArray[num1][num2] = "O";
+    }
+    var checkWin = checkForWin();
+    var checkTie = checkForTie();
+    if (checkWin){
+      shake();
+      if(turn % 2 !=0){
+            $("#h2Turn").text("X's Win!");
+      }
+      else{
+        $("#h2Turn").text("O's Win!");
+      }
+      setTimeout(function (){
+      alert("Winner! (Close to start over)");
+       clear();
+  }, 100);
+    }
+    else if (checkTie){
+      $("#h2Turn").text("It was a tie!");
+     setTimeout(function (){
+      alert("No winner this time! (Close to start over)");
+      clear();
+  }, 100);
+    }
+
+  }
+  function checkForTie(){
+    for (var i = 0; i < 3; i ++){
+      for (var j = 0; j < 3; j ++){
+         if ($("#btn" + i + j).text() == "-")
+          return false;
+      }
+    }
+  return true;
+  }
+  function checkForWin(){
+    for (var i = 0; i < 3; i ++){
+      if (bigArray[i][0] != "-" && bigArray[i][0] == bigArray[i][1] && bigArray[i][1] == bigArray[i][2]){
+        $("#btn" + i + 0).css({'background-color' : '#00C5CD'});
+        $("#btn" + i + 1).css({'background-color' : '#00C5CD'});
+        $("#btn" + i + 2).css({'background-color' : '#00C5CD'});
+        return true;
+      }
+    }
+    for (var i = 0; i < 3; i ++){
+      if (bigArray[0][i] != "-" && bigArray[0][i] == bigArray[1][i] && bigArray[1][i] == bigArray[2][i]){
+        $("#btn" + 0 + i).css({'background-color' : '#00C5CD'});
+        $("#btn" + 1 + i).css({'background-color' : '#00C5CD'});
+        $("#btn" + 2 + i).css({'background-color' : '#00C5CD'});
+        return true;
+      }
+    }
+    if (bigArray[0][0] != "-" && bigArray[0][0] == bigArray[1][1] && bigArray[1][1] == bigArray[2][2]){
+      $("#btn" + 0 + 0).css({'background-color' : '#00C5CD'});
+        $("#btn" + 1 + 1).css({'background-color' : '#00C5CD'});
+        $("#btn" + 2 + 2).css({'background-color' : '#00C5CD'});
+      return true;
+    }
+
+     if (bigArray[0][2] != "-" && bigArray[0][2] == bigArray[1][1] && bigArray[1][1] == bigArray[2][0]){
+      $("#btn" + 0 + 2).css({'background-color' : '#00C5CD'});
+        $("#btn" + 1 + 1).css({'background-color' : '#00C5CD'});
+        $("#btn" + 2 + 0).css({'background-color' : '#00C5CD'});
+      return true;
+    }
+
+    return false;
+  }
+  $("#btn00").click(function() {
+    userAction("#btn00",0,0)
+  });
+  $("#btn01").click(function() {
+    userAction("#btn01",0,1)
+  });
+  $("#btn02").click(function() {
+      userAction("#btn02",0,2)
+  });
+  $("#btn10").click(function() {
+      userAction("#btn10",1,0)
+  });
+  $("#btn11").click(function() {
+      userAction("#btn11",1,1)
+  });
+  $("#btn12").click(function() {
+      userAction("#btn12",1,2)
+  });
+  $("#btn20").click(function() {
+      userAction("#btn20",2,0)
+  });
+  $("#btn21").click(function() {
+      userAction("#btn21",2,1)
+  });
+  $("#btn22").click(function() {
+      userAction("#btn22",2,2)
+  });
+
+  function shake() {
+          var div = document.getElementById('shake');
+          var interval = 30;
+          var distance = 10;
+          var times =  10;
+
+          $(div).css('position', 'relative');
+
+          for (var iter = 0; iter < (times + 1) ; iter++) {
+              $(div).animate({
+                  left: ((iter % 2 == 0 ? distance : distance * -1))
+              }, interval);
+          }
+          $(div).animate({ left: 0 }, interval);
+      }
+
+  </script>
+</body>
